@@ -17,7 +17,7 @@ public class UserService implements UsrService{
 //	DemoUsr dm = new DemoUsr("jay",21,"female"); 
 //	DemoUsr dm1 = new DemoUsr("hem",21,"female"); 
 	ArrayList<DemoUsr> l = new ArrayList<DemoUsr>();
-	DemoUsr d = new DemoUsr("satya",45,"male");
+	DemoUsr d = new DemoUsr("satya","male");
 	@Override
 	
 	public DemoUsr Create( DemoUsr n) {
@@ -26,7 +26,7 @@ public class UserService implements UsrService{
 	}
 
 	@Override
-	public Optional<DemoUsr> Update(long id) {
+	public void Update(long id,String  gender) {
 //		l.add(d);
 //		//DemoUsr d = new DemoUsr("satya",45,"male");
 //		for( DemoUsr j :l ) {
@@ -36,9 +36,11 @@ public class UserService implements UsrService{
 //			}
 //		}
 		
-		Optional<DemoUsr> s = usrrepo.findById(id);
 		
-		return  null;
+			usrrepo.update(gender,id);
+			//usrrepo.deleteById(id);
+		
+		
 	}
 
 	@Override
@@ -48,9 +50,10 @@ public class UserService implements UsrService{
 	}
 
 	@Override
-	public DemoUsr Delete() {
-		DemoUsr d = new DemoUsr("satya",45,"male");
-		return d;
+	public void Delete(long id) {
+		
+		usrrepo.deleteById(id);
+	
 	}
 	
 	

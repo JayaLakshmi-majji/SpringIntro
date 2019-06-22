@@ -6,8 +6,8 @@ import com.example.demo.UsrEntity.DemoUsr;
 
 public interface UsrService {
 	DemoUsr Create(DemoUsr us );
-	Optional<DemoUsr> Update(long id);
+	void Update(long id,String gender );
 	Optional<DemoUsr> Retrive(long id);
-	DemoUsr Delete();
+	void Delete(long id);
 	
 }
