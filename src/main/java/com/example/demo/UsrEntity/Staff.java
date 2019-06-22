@@ -21,15 +21,15 @@ public class Staff implements UsrService{
 	}
 
 	@Override
-	public Optional<DemoUsr> Update(long s) {
+	public void Update(long s,String us ) {
 		// TODO Auto-generated method stub
-		return null;
+		//return null;
 	}
 
 	
 
 	@Override
-	public DemoUsr Delete() {
+	public DemoUsr Delete(long s) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -20,7 +20,7 @@ public class DemoUsr {
 	DemoUsr(){
 		super();
 	}
-	public DemoUsr(String name,int age,String gender){
+	public DemoUsr(String name,String gender){
 		
 		this.name= name;
 		this.gender=gender;
