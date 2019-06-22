@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -50,10 +51,16 @@ public class DemoController {
 	    return UsrService3.Retrive(id);
 	  }
 	
-	@PutMapping("/1/{id}")
-	public Optional<DemoUsr> updateusr2(@PathVariable long id) {
-		return UsrService3.Update(id);
+	@PutMapping("/{id}/{gender}")
+	public void update(@PathVariable long id,@PathVariable String gender) {
+		 UsrService3.Update(id,gender);
 	}
+	
+	@DeleteMapping("/{id}")
+	public void delete(@PathVariable long id) {
+		UsrService3.Delete(id);
+	}
+	
 	
 //	@PostMapping("/1")
 //	public DemoUsr createusr2(@RequestBody DemoUsr dm) {
