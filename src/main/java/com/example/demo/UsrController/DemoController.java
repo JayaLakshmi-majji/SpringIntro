@@ -1,5 +1,9 @@
+/*
+ * 
+ */
 package com.example.demo.UsrController;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,56 +20,106 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.Services.UsrService;
 import com.example.demo.UsrEntity.DemoUsr;
 
-
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DemoController.
+ */
 @RestController
 @RequestMapping("/user")
 public class DemoController {
-//	@Autowired
-//	@Qualifier("UsrService1")
-//	UsrService UsrService1;
-//	@Autowired
-//	@Qualifier("UsrService2")
-//	UsrService UsrService2;
+	
+/*	@Autowired
+	@Qualifier("UsrService1")
+	UsrService UsrService1;
 	@Autowired
+	@Qualifier("UsrService2")
+	UsrService UsrService2;*/
+
+	/** The Usr service 3. */
+@Autowired
 	@Qualifier("UsrService3")
 	UsrService UsrService3;
 	
-//	@PostMapping("/1")
-//	public DemoUsr create(@RequestBody DemoUsr dm) {
-//		return UsrService3.Create(dm);
-//	}
+	/**
+	 * Home.
+	 *
+	 * @return the string
+	 */
+	/*@PostMapping("/1")
+	public DemoUsr create(@RequestBody DemoUsr dm) {
+		return UsrService3.Create(dm);
+	}
 	
-//	@PutMapping("/1/{name}")
-//	public DemoUsr update(@PathVariable String name) {
-//		return UsrService3.Update(name);
-//	}
-//	
+	@PutMapping("/1/{name}")
+	public DemoUsr update(@PathVariable String name) {
+		return UsrService3.Update(name);
+	}*/
+	@RequestMapping("/login")
+    String home() {
+        return "Registration";
+    }
 	
-	@PostMapping("/")
+	/**
+	 * Adds the.
+	 *
+	 * @param dm the dm
+	 * @return the demo usr
+	 */
+	@PostMapping("/save")
 	public DemoUsr add(@RequestBody DemoUsr dm) {
 		return UsrService3.Create(dm);
 	}
 	
-	@GetMapping("/{id}")
+	
+	/**
+	 * Retrive.
+	 *
+	 * @param id the id
+	 * @return the optional
+	 */
+	@GetMapping("/retrive/{id}")
 	  public Optional<DemoUsr> retrive(@PathVariable long id) {
 	    return UsrService3.Retrive(id);
 	  }
 	
-	@PutMapping("/{id}/{gender}")
-	public void update(@PathVariable long id,@PathVariable String gender) {
-		 UsrService3.Update(id,gender);
+	
+	/**
+	 * Retrive all.
+	 *
+	 * @return the list
+	 */
+	@GetMapping("/view")
+	  public List<DemoUsr> retriveAll() {
+	    return UsrService3.retrive();
+	  }
+	
+	
+	/**
+	 * Update.
+	 *
+	 * @param id the id
+	 */
+	@PutMapping("/{id}")
+	public void update(@PathVariable long id) {
+		 UsrService3.Update(id);
 	}
 	
+	
+	/**
+	 * Delete.
+	 *
+	 * @param id the id
+	 */
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable long id) {
 		UsrService3.Delete(id);
 	}
 	
 	
-//	@PostMapping("/1")
-//	public DemoUsr createusr2(@RequestBody DemoUsr dm) {
-//		return UsrService2.Create(dm);
-//	}
+/*	@PostMapping("/1")
+	public DemoUsr createusr2(@RequestBody DemoUsr dm) {
+		return UsrService2.Create(dm);
+	}*/
 	
 	/*@PutMapping("/1/{name}")
 	public DemoUsr updateusr2(@PathVariable String name) {
@@ -95,27 +149,30 @@ public class DemoController {
 	public DemoUsr deleteusr1() {
 		return UsrService2.Delete();
 	}*/
-	
-	
-	
-	@GetMapping("/")
+		
+	/**
+ * Base.
+ *
+ * @return the string
+ */
+@GetMapping("/")
 	  public String base() {
 	    return "Hello World!!!";
 	  }
 	
 	
-//	 public void initIt() throws Exception {
-//	       
-//	 
-//	        l.add(dm);
-//	        l.add(dm1);
-//	    }
-//	
+/*	 public void initIt() throws Exception {
+	       
+	 
+	        l.add(dm);
+	        l.add(dm1);
+	    }
+	*/
 	/*DemoUsr dm = new DemoUsr("jaya",21,"female"); 
 	DemoUsr dm1 = new DemoUsr("hema",21,"female"); 
 	ArrayList<DemoUsr> l = new ArrayList<DemoUsr>();
 	
-//	
+	
 	@GetMapping("/DemoUsr/{name}")
 	public DemoUsr Met(@PathVariable String name) {
 		DemoUsr dm = null;

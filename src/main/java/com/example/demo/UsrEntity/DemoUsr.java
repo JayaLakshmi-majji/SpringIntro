@@ -1,45 +1,68 @@
+/**
+ * 
+ */
 package com.example.demo.UsrEntity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+/**
+ * The Class DemoUsr.
+ */
 @Entity
 public class DemoUsr {
 	
-	 @Id
-	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 @Column(columnDefinition = "serial")
+	 /** The id. */
+ 	@Id
+	 @GeneratedValue(strategy = GenerationType.AUTO)
 	 public Long id;
-	public String name;
-	//public int age;
-	public String gender;
-	//public String type;
 	
+	/** 
+	 * The name. 
+	 */
+	public String name;
+	
+	/** 
+	 * The gender. 
+	 */
+	public String gender;
+	
+	/**
+	 * Instantiates a new demo usr.
+	 */
 	DemoUsr(){
 		super();
 	}
+	
+	/**
+	 * Instantiates a new demo usr.
+	 *
+	 * @param name 
+	 * @param gender 
+	 */
 	public DemoUsr(String name,String gender){
 		
 		this.name= name;
 		this.gender=gender;
 		
 	}
+	
 	public String toString() {
 		return this.name+ " "+
 		this.gender +" " + this.id;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		//result = prime * result + age;
 		result = prime * result + ((gender == null) ? 0 : gender.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		//result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
